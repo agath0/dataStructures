@@ -1,0 +1,42 @@
+Array as abstract data types(adt)
+
+-adt :means representation of data and the set of operation
+	ont the data
+-array is a basic data structure provided by almost every
+	programming language
+-so representation of data is defined by the compiler itself
+-but operations on the data structure need to be given by us
+
+
+Data
+-array space
+-size
+-length(no of elements)
+ Note: by length of array we mean that it need not
+	be that the entire array size is always 
+	occupied there can be spaces which are 
+	unoccupied,so length of arrray is no of 
+	elements occupying the array
+
+Operations
+-display()
+-add(x)/append(x)
+-insert(index,x)
+-delete(index)
+-search(x)
+-get(index)
+-set(index,x)
+-max()/min()
+-reverse(
+-shift()/rotate()
+
+
+int a[10];
+//here we need to specify the size of array
+ at the time of creation itself
+
+int *a;
+a=new int[size];
+//this method allows you to create the array
+ in heap without specifying the array space
+ and the desired space can be specified later

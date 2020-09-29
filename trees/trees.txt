@@ -1,0 +1,230 @@
+TREES
+
+Tree is a collection of nodes and edges
+and among those one node is taken as root node and
+rest of the nodes are divided into disjoint subsets 
+and each subset is a tree or sub tree
+
+
+Notes
+-if there are n vertices there will be (n-1)edges
+
+
+Terminology
+
+-Root
+-Parent
+-Child
+-Siblings
+-Descendents
+-Ancestors
+-Degree of a node
+-Internal/External node
+-Levels
+-Height
+-Forest
+
+
+BINARY TREES	
+Here every node can have maximum two children
+degree(T)=2
+left child
+right child
+chldren={0,1,2}
+
+
+NUMBER OF BINARY TREES
+
+-Unlabelled nodes
+-Labelled nodes
+
+
+no.of trees for given no.of nodes
+T(n)=((2n)Cn/(n+1))
+name of this formula is Catalon Number
+T(5)=42
+n    0  1  2  3  4  5  6
+T(n) 1  1  2  5  14 42 132
+
+
+n=3  max height=4=2**2
+n=4  max height=8=2**3
+n=5  max height=16=2**4
+n    max height    2**(n-1)
+
+
+
+Labelled nodes
+
+every shape can be filled in n! ways
+
+so T(n)=((2n)Cn)*n!/(n+1)
+
+
+
+
+HEIGHT VS NODES
+
+minimum nodes n=h+1
+
+in binary tree nodes arranged in max possible way
+will be following a GP series
+
+maximum node n=2**(h+1)-1
+
+(1)+(2**2)+(2**3)+(2**4)+.....(2**h)=2**(h+1)-1
+
+(a)+(ar)+(ar**2)+(ar**3)+...(ar**k)=a(r**(k+1)-1)/(r-1)
+
+
+maximum height h=n-1
+minimum height h=log2(n+1)-1
+
+
+Height of binary tree
+
+log2(n+1)-1 <= h <=n-1
+
+O(log n)   <= h <= O(n)
+
+no of nodes in a binary tree
+
+h+1 <= n <= 2**(h+1)-1
+
+
+INTERNAL NODES VS EXTERNAL NODES
+
+leaf nodes and non leaf nodes
+
+There is a relation between nodes with
+degree(2) and degree(0)
+
+no.of nodes with deg(0) =(no of nodes with deg(2) + 1) 
+
+
+STRICT BINARY TREES
+
+In general binary tree every nodes can have
+{0,1,2} children
+In strict binary tree every node can have
+{0,2} children
+
+
+HIGHT VS NODE OF STRICT BINARY TREE
+
+
+if height h is given
+min nodes n=2**h+1
+max nodes n=2**(h+1)-1
+
+
+if n nodes are given
+min height h=(log2(n+1)-1)
+max height h=(n-1)/2
+
+So height is ranging from O(log2(n)) to O(n)
+
+
+
+INTERNAL VS EXTERNAL NODES IN STRICT BINARY TREE
+
+e=i+1
+
+
+
+
+
+n-ary TREES
+
+n is the degree of a tree
+
+3-ary tree :max capacity of each node is {0,1,2,3}
+4-ary tree :max capacity of each node is {1,1,2,3,4}
+
+if height is given
+
+min nodes n=mh+1
+max nodes n=(m**(h+1)-1)/(m-1)
+
+
+if n nodes are given
+min height h= logm(n(m-1)+1)-1
+max height h= (n-1)/m
+
+
+no of internal vs exteral nodes
+e=2i+1
+e=(m-1)i+1
+
+
+
+
+
+REPRESENTATION OF BINARY TREES
+1.Array Rep
+2.Linked Rep
+
+Note:Array representation can be created in stack or heap so 
+it can be static or dynamic
+Linked representation is always created in heap so its dynamic
+
+
+Array Representation
+
+A B C D E F G
+1 2 3 4 5 6 7
+
+element    index   L.child   R.child   parent
+A	     1	      2         3	
+B	     2	      4         5	
+C	     3	      6         7	
+	     i	      2*i      2*i+1 	i/2	
+
+
+Linked Representation
+
+struct node
+{
+	struct node *lchild;
+	int data;
+	struct node *rchild;
+}
+
+Note:IF there are n nodes there will be n+1 null pointers
+
+
+
+FULL VS COMPLETE BINARY TREE
+
+in a full binary tree
+total max no of nodes  n = 2**(h+1)-1
+
+If a binary tree is represented in an array and if
+there is no blank spaces in between the elements then
+its called a complete binary tree
+
+If a tree is such that you are forced to have blank
+spaces then its not suitable to be represented using
+an array and so its not a complete binary tree
+
+
+
+STRICT VS COMPLETE BINARY TREE
+
+strict if node is having only degree {0,1}
+complete if there is no blank space in its array representation
+
+
+
+BINARY TREE TRAVERSALS
+
+
+Traversing in tarversing or visiting all the nodes
+
+Preorder:vist(node),preorder(left subtree),preorder(right subtre)
+
+Inorder :inorder(left),visit(node),inorder(right)
+
+Postorder:postorder(left),postorder(right),visit(node)
+
+Levelorder:level by level

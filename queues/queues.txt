@@ -1,0 +1,132 @@
+QUEUE
+is a logical data structue
+Works on First in First out (FIFO) mechanism
+
+Realife Examples
+-people standing in queue
+-cars in toolbooth
+-applications in queue
+
+
+Queue have two ends
+-front end
+-rear end
+
+If a person wants to enter he have to come and
+stand at the rear end
+Insertion is done at rare end
+Deletion is done at front end
+
+
+ADT of Queue
+
+Data
+-space for storing elements
+-front for deletion
+-rear for insertion
+
+Operations
+-enqueue(x)
+-dequeue()
+-isEmpty()
+-isFull()
+-first()
+-last()
+
+Queue can be implemented usins
+-Array
+-Linkedlist
+
+
+
+-Queue using single pointer
+-Queue using front and rear
+-Drawbacks of queue using Array
+
+
+
+
+-Queue using single pointer rear R
+Q -1 0 1 2 3 4 5 6
+initialy rear pointer is at -1
+Index in array starts from 0 onwards
+Insertion move R to next location and insert an element 
+To delete element we can only delte the element that
+came in first(FIFO)
+So after deleting the first element the blank space
+needed to be filled by shifting all elements one at a time
+So insertion is O(1)
+So deletion is O(n)
+
+-Queue using two pointers front F and Rear R
+initially F and R in at -1 and queue is empty
+F=R=-1
+To insert move R to next position and insert an element
+To delete move F to next position and delete an element
+So F is always pointing before the first element
+So both process take O(1)
+Queue is empty when F==R
+Queue is full when R=size-1
+
+
+-Drawbacks
+>We canot reuse the spaces of deleted element
+>Every location can be used only once cannot reuse them
+>A situation where queue is empty but since F=R its interpretd full
+
+-Solution to Drawbacks
+
+>Resetting pointers
+At any time if queue becomes empty intiaize F=R=-1
+But this does not guarantee that space is used fully
+because if queue doesnt become empty at any time
+the spaces are not usable
+
+>Circular queue
+Here array is made to be used in a circular fashion
+by using mode operations
+And F and R also moves through this array circularly
+
+Mode operation
+R = (R+1)%size   here % gives remainder
+0   (0+1)%7 = 1
+1   (1+1)%7 = 2
+2   (2+1)%7 = 3
+3   (3+1)%7 = 4
+4   (4+1)%7 = 5
+5   (5+1)%7 = 6
+6   (6+1)%7 = 0
+
+
+
+Double Ended Queue
+In Queue
+-front is used for deletion
+-rear is used for insertion
+
+In Dequeue
+-front is used for both deletion and insertion
+-rear  is also used for both deletion and insertion
+
+Note 
+-we are not strictly followin FIFO in a dequeue
+-To delet using rear take out the value
+at rear and decrement rear
+-To delet using front move front one step(increment)
+and delete the value
+-To insert using front insert the value
+and decrement the front
+-To insert using rear increment rear and insert value
+-You can use array or linked list to implement dequeue
+
+There are Two types of dequeue
+
+-Input restricted dequeue
+	insert   delete
+front     no	   yes
+rear	  yes	   yes
+
+-Output restricted dequeue
+	insert   delete
+front     yes	   yes
+rear	  yes	   no

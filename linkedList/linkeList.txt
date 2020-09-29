@@ -1,0 +1,79 @@
+Why linked list????
+
+===Problems with arrays
+-array is of fixed size
+-once created it remains same
+-What if you dont know size of array
+-the size given for array may be excess or insufficient
+
+===Difference with array and linked list
+-linked list can easily insert,delete,append etc
+ without declaring a size initially
+-linked list is always created inside heap only
+-memory is dynamically allocated
+-for each element memory is separately allocated
+
+
+===What is linked list???
+-its a collection of nodes where each node contain data
+ and a pointer to the next node
+-the starting node is called as  first/head
+ head node is a pointer to the next node
+-nodes created will not be side by side and continous
+ like that of an array
+
+
+===Creating a linked list;
+-defining node structure
+
+struct node
+{
+	int data;
+	struct node *next;
+};
+
+-here pointer is a pointer to type node
+-here the structure is having data as well as pointer
+ of type structure node
+-its having a pointer of its own type such a 
+ structure is defined as self-referential structure
+-in every compiler if integer take two bytes then 
+ pointer also take two bytes
+-Creating node
+
+struct node *p
+p= (struct node *)malloc(sizeof(struct node));//in c
+p=new node;//in cpp
+
+-Accessing structure members using arrow symbol operator
+
+p->data=10;
+p->next=0;
+
+
+===Some useful statements
+
+struct node *p,*q
+q=p;   //whatever in p stored in q also,both point to same node
+q=p->next;  //let q point on next node of p
+p=p->next;  //moves p to the next node
+p=NULL;  //p in not pointing to any node
+p=0;  //p in not pointing to any node
+if(p==NULL)
+if(p==0)
+if(!p)
+if(p!=NULL)
+if(p!=0)
+if(p)
+if(p->next==NULL) //to check if its the last node
+if(p->next!=NULL)
+
+
+NOTE:for c programming we use structure , for cpp also we
+     can use structure, the structure in cpp is class, the 
+     difference between class and structure is that in class
+     everything by default is private but in structure every
+     thing by default is public
+
+
+

@@ -1,0 +1,112 @@
+GRAPHS
+
+is defined as collection of vertices and edges
+G(V,E)
+
+selfloop
+parallel edges
+indegree
+outdegree
+adjuscent vertices
+degree
+articulation points
+biconnected components
+path
+
+
+
+
+Simple Digraph
+Graph/non directed graph
+Non connected graph
+Strongly conneced graph
+Directed acyclic graph
+
+
+Topological ordering of graph
+
+Many problems can be represented in the form of a 
+graph and if you can solve a graph you can solve 
+the problem
+
+Representing Graphs
+
+To represent graphs we need two things
+-what are the set of vertices
+-what are the set of edges
+
+Method used in representing graph
+-adjacency matrix
+-adjacency list
+-compact list
+
+
+Adjacency matrix
+  1 2 3 4 5
+1 0 1 1 1 0 
+2 1 0 1 0 0 
+3 1 1 0 1 1
+4 1 0 1 0 1
+5 0 0 1 1 0
+
+O(n**2)
+
+Adjacency list
+array   linked lists...
+1       2  3  4
+2       1  3
+3       1  2  4  5
+4       1  3  5
+5       1  3  5
+
+O(n+2e) = O(n+e)
+|V|+2|E|
+
+Weighted adjacency matrix(cost adjacency matrix)
+  1 2 3 4 5
+1 0 9 4 3 0 
+2 9 0 1 0 0 
+3 8 1 0 1 9
+4 7 0 4 0 2
+5 0 0 6 5 0
+
+Here one is replaced by weights
+
+
+
+Weighted Adjacency list(cos tadjacency list)
+array   linked lists...
+1       2(3)  3(8)  4(1)
+2       1(1)  3(9)
+3       1(2)  2(8)  4(4)  5(1)
+4       1(7)  3(7)  5(1)
+5       1(2)  3(9)  5(3)
+
+Here along with edges the weight is also stored in linked lists
+
+
+Compact List Representation
+the entire graph is represented in form of array
+
+as each edge representd in two way
+G=(V,E)
+|V|+2|E|+1
+
+example:
+|V|=n=5
+|E|=e=7
+|V|+2|E|+1=21
+
+
+
+
+
+Inverse adjacency list
+
+
+Representation for directed graphs
+
+
+
+
+

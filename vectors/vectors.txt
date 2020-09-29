@@ -1,0 +1,26 @@
+VECTORS
+
+
+
+This is a C Program to implement Vectors. An array (vector) i
+s a common-place data type, used to hold and describe a colle
+ction of elements. These elements can be fetched at runtime b
+y one or more indices (identifying keys). A distinguishing fe
+ature of an array compared to a list is that they allow for c
+onstant-time random access lookup, compared to the latters se
+quential access. Resizable arrays allow for an unspecified up
+per-bound of collection elements at runtime, and are conceptu
+ality similar to a list. These dynamic arrays are more compli
+cated and less used in introduction to its compatriot list, w
+hich is dynamic by nature. Using C as the language of impleme
+ntation this post will guide you through building a simple ve
+ctor data-structure. The structure will take advantage of a f
+ixed-size array, with a counter invariant that keeps track of
+ how many elements are currently present. If the underlying a
+rray becomes exhausted, the addition operation will re-alloca
+te the contents to a larger size, by way of a copy.
+
+
+Here is source code of the C Program to Implement Vector. The
+ C program is successfully compiled and run on a Linux system
+. The program output is also shown below. 

@@ -1,0 +1,45 @@
+
+
+As graph is a non linear data structure there are two 
+suggested traversal metrics like that of
+Breadth first search
+Depth first search
+ 
+
+Breadth first search is similar to level order of a 
+binary tree	
+
+
+-visiting a vertex
+-exploring all neighbours of a vertex
+
+
+For performing BFS we need to know which vertices we have
+visite and which vertices are yet to be visited
+So for that we take an array visited
+
+We also need a queue data structure where we insert and
+delete the vertices that is we perform the enqueue and
+dequeue operations.,
+
+void BFS(int i)
+{
+	int u:
+	printf("%d",i);
+	visited[i]=1;
+	enqueue(q,i);
+	while(!isEmpty(q))
+	{
+		u=dequeue(q);
+		for(v=1;v<=n;v++)
+		{
+			if(A[u][v]==1 && visited[v]==0)
+			{
+				printf(%d,v);
+				visited[v]=1;
+				enqueue(q,v);
+			}
+		}
+ 	}
+}
+

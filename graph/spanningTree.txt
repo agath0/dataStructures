@@ -1,0 +1,87 @@
+Spanning Tree
+
+is a subgraph of a graph having all vertices of  a graph
+but (n-1) edges
+wher n is the no.of vertices
+so that there is no cycle formed by those edges
+and graph must be connected
+
+G=(V,E)
+
+n=|v|
+e=|E|
+
+S:spanning tree
+
+S is the subgraph of a graph
+
+we can find a spanning tree only if the graph is connected
+
+S=(V`,E`)
+where,
+|V`|=|V|
+|E`|=|V|-1
+
+
+
+
+Minimum Cost Spanning Tree
+the toal weight of all the edges included in that spanning
+tree must be minimum
+There are many algorithms for finding minimum cost
+spanning tree
+
+
+Prims Minimum Cost Spanning Tree
+works only for a connected graph
+-Select a minimum cost edge from the graph
+-Select the next minimum cost edge which is connected 
+ to the previous edge
+
+
+Kruskals Minimum cost Spanning Tree
+always select a minimum cost edge but make sure that
+they are not forming a cycle
+if they form a cycle just skip that edge
+Time complexity we get it as O(n**2)
+but if we use min heap for finding the edge with minimum
+cost we can reduc that n to log(n)
+So then the time complexity will be nlog(n)
+
+If the graph is not connected it will find a minimum 
+spanning tree for each tree individualy
+
+Disjoint Subsets:used for detecting cycles in the graph
+Find operation finds who is the parent of the given node
+Disjoint subsets do not have any common elements
+between them
+Union : weighted union
+Find  : collapsing find
+void Union(int u,int v){
+	if(s[u]<s[v]){
+		s[u]=s[u]+s[v];
+		s[v]=u;
+	}
+	else{
+		s[v]=s[u]+s[v];
+		s[u]=v;
+	}
+}
+
+int find(int u){
+	int x=u;
+	while(s[x]>0){
+		x=s[x];
+	}
+}
+
+
+Prims VS  Kruskals
+in prims the focus is more on finding a tree
+rather  than minimum tree
+in kruskals the more focus is on finding  a minimum tree
+rather than finding a treee itself
+
+
+
+

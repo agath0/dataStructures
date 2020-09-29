@@ -1,0 +1,332 @@
+contents
+
+
+-Hashing
+-Mathematical model for  hashing
+-Closed Hashing
+-Open Hashing
+-Chaining
+-Linear Probing
+-Quadratic Probing
+-Double Hashing
+-Different Types of Hash Fuctions
+	*Modulous
+	*Midsquare
+	*Folding
+
+
+
+
+
+
+
+Hashing
+
+is useful for searching
+
+Linear-O(n)
+Binary-O(log(n))
+
+We need O(1) which is smaller than O(log(n))
+For that hashing is introduced
+Hashing will try to search for keys less than log(n) time
+almost constant time
+
+
+We can perform linear search even if the keys are
+not kept in any order in an array
+We can perform binary search even if the keys are
+ kept in sorted order in an array
+So this is the extra work that we need to do
+for applying binary search
+
+
+Hashing
+keys:8,3,6,10,1,4
+
+a[]={-,1,-,3,4,-,6,-,8,-,10}
+
+to search for a particular key directly go to that 
+particular index and find out if that key is there or not.
+And this takes only constant time.
+
+Drawback:For just 6 keys in the above case we needed to 
+	 use an array of size 11
+	So lot of space is required and is 
+	lot of space is wasted
+
+
+Mathematical model for  hashing
+
+Key Space
+Hash Table
+Mappings
+
+
+Mappings
+-one to one
+-one to many
+-many to one
+-many to many
+
+
+
+h(x)=x   is the ideal hashing
+	the time taken is constant
+	time is equal to time taken by the hash function
+
+Drwback of ideal hashing
+-space rquired is too high and lot of space is wasted
+
+
+To reduce the space we modify the hash function
+
+
+
+
+
+h(x)=x%10  is the modulous hash function
+
+Drawback is that collision of keys can take place
+So its a many to one mapping
+To avoid this collision
+
+Closed Hashing
+we will utilize only the space that is given
+*Open addressing:here we will not strictly store at a place
+ where the hash function has stored the address
+ we may store it at any other address which we get by using
+ any of the following methods
+-linear probing
+-quadratic probing
+-double hashing
+
+
+Open Hashing
+we will consume extra space beyond this hash table
+-chaining
+
+
+
+
+
+Chaining
+
+Here hash table is made out of array of linked lists
+
+example:
+to search for key 15
+apply function h(x)=x%10
+	      h(15)=5
+go to index 5 in the array 
+and then search for 15 in the linked list attached
+to index 5 in the array
+If the linked list is sorted we reduce the time taken
+for searching in the linked list and stop searching if 
+the next element is greater than the searching element
+
+
+Loading factor  lf=n/size
+	n- no of keys
+	size-size of the hash table
+
+Analysis of hashing table is always done based on
+loading factor
+example:
+if n=100
+lf=(100/10)=10
+with this  10 we are assuming that the 100 keys are 
+uniformly distributed at each location so each location
+is having around 10 keys
+
+AverageTime taken for succesful search
+t=1+(lf/2)
+1 for computing hash function
+lf is the loading factor
+
+AverageTime taken for unsuccesful search
+t=1+lf
+lf since we dont know when it will stop so we assume that
+it will stop at the end
+
+
+Delete,Insert a key
+this operations are the same as for the
+case of a linked list
+
+
+
+
+
+Linear Probing
+
+Its a collision resolution technique
+This comes under closed hashing
+Whenever there is collision try to store
+elements at the next free space
+So we probe linearly until we get a space to
+store the element
+
+h`(x)=[h(x)+f(i)]%10  wher f(i)=i , i=0,1,2,.....
+
+
+When a key is being searched ,
+use the hash function ,
+go to that index ,
+if its not equal next and go on ,
+and if an empty place found stop ,
+empty place found means element is not there.
+
+
+Loading factor  lf=n/size
+
+   lf<=.5
+this means that if the size of the hash table is 10
+you should not fill more than 5 keys
+So whatever the size of the hash table atmost 
+it can be half filled
+
+Average successfull search
+
+t=(1/lf)ln(1/(1-lf))
+
+Average unsuccessfull search
+
+t=(1/(1-lf))
+
+
+Drawbacks
+
+This method can be little more time consuming
+than constant in many cases
+You will always have to keep half of the hash table
+vacant so space is wasted
+Lot of keys may be accumulating at one place and
+forming a cluster(primary clustering)
+If you want to delete an element,after deleting
+take out all the keys , insert all the keys once
+again and this process is known as rehashing
+So in linear probing we do not prefer
+deletion of elements
+But rehashin is very time consuming too
+
+
+
+
+Quadratic Probing
+
+Its one of the collision resolution technique
+It comes under open addrressing
+
+If there is a collision we try to store the 
+element at some free space in the hash table
+And in hash table we try to utilize the space that
+is given only
+
+In this technique we try to avoid the problem
+of clustering of elements(primary clustering)
+
+h`(x)=[h(x)+f(i)]%10  wher f(i)=i**2 , i=0,1,2,.....
+
+So the only differece with linear probing is
+that we palce elements a more distance apart
+
+
+Average Succesful Search
+
+-loge(1-lf)/lf
+
+Average UnSuccesful Search
+
+1/(1-lf)
+
+
+
+
+Double Hashing
+
+This is also a method for resolving collision
+Here we will have two hash fuctions
+One is the basic hash fucntion
+If there is a collision then the other hash
+fuction will help us to remove collision
+
+
+h1(x)=x%10
+h2(x)=R-(x%R)
+
+h`(x)=(h1(x)+i*h2(x))%10    where i=0,1,2,3....
+
+here 10 is the size of  the hash table 
+R is  a prime number that is smaller than the size
+of the hash table
+Nearest prime number less than 10 is 7
+Second hash function is having two desired properties
+-it should never give a result 0
+-it should try to probe all the locations
+ means whenver there is a collision it should not give
+ the indices in the same pattern it should give 
+ different indiced such that all the locations are
+ utilized
+
+Here every time we are getting different location 
+though all these elements are bieng mapped at same
+index
+So the double hash function is giving different 
+location for different keys
+
+So double hashing reduces collisions
+
+
+
+Different Types of Hash Fuctions
+
+1.Modulous  h(x)=(x%size)
+	    its preffered that the size of the hash
+ 	    table is a prime number so as to reduce the
+	    no of collision because the prime numbers
+	    have only two factores 1 and number itself
+
+
+2.Midsquare
+	if key is 11
+	then 11**2 =121  so index 2 taken
+	if key is 13
+	then 13**2 =169  so index 6 taken
+	if key is 111
+	then 111**2 =12321  so index 3 taken
+	if key is 9
+	then 9**2 =81  so index modulous(81)=1 taken
+
+3.Folding
+	suppose key =123347
+	12+33+47=92 then store in index 92
+ 	
+	if its a string take all the ascii codes
+	if ABC then 65 66 67
+	65+66+67=198 is the index to be used
+
+
+
+
+
+
+NOTE:
+ITS UPTO THE PROGRAMMER TO SELECT THE HASH FUNCTION
+SUCH THAT THE KEYS WILL GET UNIFORMLY DISTRIBUTED
+IF YOU DONT SELECT A PROPER HASH FUNCTION THAT MEANS
+YOU DONT REALLLY KNOW HASHING
+So select the hash fuction based on the data to be
+operated upon
+
+
+
+
+Languages like Java nad .net provide in built hashing
+in java whenever you create an object a hash code is 
+given for that object that hash code is 
+automaticcally generated by JVM on a system using 
+date time location and various other values as 
+parameters and generate the hash code so that 
+that code wll uniquely identify a object created 
+universally

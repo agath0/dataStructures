@@ -1,0 +1,101 @@
+Strings
+
+-Character set/ASCII codes
+-Character Array
+-String
+-Creating a string
+
+
+
+Character set/ASCII codes:
+
+American Standard Code for Information Interchange
+
+is the set of characters supported by a programming language.
+Computer system works on binary number system
+Everything in computer is numbers basically they dont 
+support characters.
+To make them work with characters we define some set
+of numbers as characters.
+For each english alphabet there are some standard codes
+and every electronic system follows these same set of codes
+and they are called ASCII codes.They are also the ISO 
+standard.
+For various other national languages like hindi,japanese,
+chinese othe set of ISO codes are set and those codes are
+called as Unicodes.
+A-65  a-97  0-48
+A-66  a-98  1-49
+A-67  a-99  2-50
+. 
+.
+.
+A-90  a-122 9-57
+
+for special characters also (,),?,+,-,*,.......
+
+enter-10
+space-13
+esc  -27
+
+Total 128(0-127) ASCII codes  are there
+To represent any one of this character 7bits are needed.
+Since 2**7=128
+But while allocating the memory in the main memory that is
+ram mininimum 1 byte is allocated and thats why ASCII code
+that is character is stored in minmum 1 byte in computter
+memory
+
+English is also subset of unicodes
+Unicodes take 2 bytes that is 16 bits of memory
+and this 16 bits can be represented in the form of 
+hexadecimal codes and each hexadecimal can be
+represented using 4 bits. So total 4 hexadecimal*4 bits
+total 16 bits are there
+Charts for the codes for various languages are available
+Unicodes.org
+
+
+
+Character array
+
+char temp='g'
+printf("%c",temp);//will get printed in character form
+printf("%d",temp);//will get printed in decimal form
+cout<<temp;//cpp already knows its  a character 
+	   //and give the character in charcter format
+
+char x[5]={'A','B','C','D','E'};
+char x[]={'A','B','C','D','E'};
+char x[5]={'65','66','67','68','69'};
+
+
+Strings
+
+string is a set of characters
+In C and CPP the end of the string is marked with
+end of the string character or string delimiter 
+or string terminator or null character '\0'
+In java the end of a string is known by using
+length of the string
+
+
+char name[10]={'J','O','H','N','\0'};
+
+char name[]={'J','O','H','N','\0'};
+
+char name[]="JOHN";
+
+//as JOHN is written in double qoutes the
+//C compiler will automatically include \0 at the end
+
+char *name="JOHN";
+
+//Here name is a character pointer pointing to
+//the address of location JOHN in heap
+//this string will automatically be created in 
+//heap though we didnot use any malloc or new fuction
+//strings created by all other above methods are created
+//inside the stack
+
+

@@ -1,0 +1,61 @@
+Stack
+
+Last in first out
+
+
+examples:
+-car parking
+-a tin of balls
+-trains in railway track and parking
+
+NOTE:
+Recursion internally uses a stack(systems stack)
+
+Its known that every recursion can be converted into loop(iteration)
+
+Sometimes when recurson are converted into stack we have to use
+stack and this is not systems stack but a stack that need to be
+be provided by the programmer itself
+
+We can implement stack using an array or linked list 
+
+Abstract Data Type (ADT) of stack:
+
+ADT will contain the data representation and the operations on
+the stack
+Data:
+-space for storing elements
+-top pointer
+
+Operstions:
+-push(x)
+-pop()
+-peek(index)
+-stactTop()
+-isEmpty()
+-isFull()
+
+
+
+APPLICATIONS:
+
+-Paranthesis Matching
+Check that for every opening bracket there is a closing bracket
+Working:whenever we find an opening bracket we push that
+	into the stack and move on ignoring any other
+	characters and when we find a closing bracket we pop
+	one opening bracket from inside the stack one at a time
+	and after reaching the end of our expression check if
+	our stack is empty and if empty that means the 
+	paranthesis are perfectly matched
+Case 1:we have extra closing bracket but stack is empty
+	so we are trying to pop out but the stack is empty
+	this is a situation where the above method wont
+	work properly
+
+examples:
+((a+b)*(c-d)) matching
+(((a+b)*(c-d)) not matching and will work with above method
+((a+b)*(c-d))) not matching and will not work with above method
+
+
